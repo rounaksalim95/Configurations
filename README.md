@@ -4,3 +4,6 @@
 AddKeysToAgent yes
 UseKeychain yes
 IdentityFile ~/.ssh/id_rsa```
+
+# zsh  
+- https://github.com/robbyrussell/oh-my-zsh
