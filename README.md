@@ -8,4 +8,5 @@ IdentityFile ~/.ssh/id_rsa```
 # zsh  
 - [Great way to get started] (https://github.com/robbyrussell/oh-my-zsh)
 - Requires [Powerline Fonts] (https://github.com/powerline/fonts) for Agnsoter theme  
-- [iTerm2] (https://www.iterm2.com)
+- [iTerm2] (https://www.iterm2.com)  
+- [Cobalt2 theme] (https://github.com/wesbos/Cobalt2-iterm)
