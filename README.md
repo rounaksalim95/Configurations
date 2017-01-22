@@ -3,7 +3,8 @@
 ```Host *
 AddKeysToAgent yes
 UseKeychain yes
-IdentityFile ~/.ssh/id_rsa```
+IdentityFile ~/.ssh/id_rsa```   
+- `ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/.`
 
 # zsh  
 - [Great way to get started] (https://github.com/robbyrussell/oh-my-zsh)
