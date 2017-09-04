@@ -4,6 +4,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/rounaksalim95/.oh-my-zsh
 
+# Path for yarn 
+export PATH="$PATH:`yarn global bin`"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -84,10 +87,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vanderbilt="cd ~/Documents/git/Vanderbilt"
-alias taption="cd ~/Documents/git/Taption"
 alias weather="curl \"wttr.in/nashville?m\""
 alias myip="curl http://ipecho.net/plain; echo"
 alias gt="cd ~/Documents/git"
+alias ga="git add ."
+alias gs="git status"
+alias gc="git commit -S"
+alias gh="open http://github.com"
+alias glg="git log --graph --oneline --decorate --all"
 
 # Display content of a directory after using cd 
 cdAndls() {
@@ -101,5 +108,18 @@ makeAndcd() {
 	builtin cd $1
 }
 
+# cd into Taption and greet 
+taptionAndGreet() {
+	cd ~/Documents/git/Taption 
+	say Lets do some great work! 
+}
+
 alias cd="cdAndls"
 alias mkdir="makeAndcd"
+alias taption="taptionAndGreet"
+alias vim="mvim -v"
+
+# Install z 
+. ~/Documents/git/z/z.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
