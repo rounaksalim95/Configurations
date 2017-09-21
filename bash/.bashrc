@@ -151,6 +151,7 @@ alias gs='git status'
 alias gc='git commit'
 alias ga='git add .'
 alias gp='git push' 
+alias gd='git diff'
 alias glg='git log --graph --oneline --decorate --all'
 
 # added by Anaconda3 4.4.0 installer
