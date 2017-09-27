@@ -154,5 +154,8 @@ alias gp='git push'
 alias gd='git diff'
 alias glg='git log --graph --oneline --decorate --all'
 
+## Alias Jupyter Notebook 
+alias jn='jupyter notebook'
+
 # added by Anaconda3 4.4.0 installer
 export PATH="/home/icewolf/anaconda3/bin:$PATH"
