@@ -119,6 +119,7 @@ alias cd="cdAndls"
 alias mkdir="makeAndcd"
 alias taption="taptionAndGreet"
 alias vim="mvim -v"
+alias jn="jupyter notebook"
 
 # Install z 
 . ~/Documents/git/z/z.sh
