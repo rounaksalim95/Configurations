@@ -96,6 +96,7 @@ alias gs="git status"
 alias gc="git commit -S"
 alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
+alias glp="git pull"
 
 # Display content of a directory after using cd 
 cdAndls() {
