@@ -100,6 +100,7 @@ alias ga="git add ."
 alias gs="git status"
 alias gc="git commit -S"
 alias glg="git log --graph --oneline --decorate --all"
+alias glp="git pull"
 
 # Display content of a directory after using cd 
 cdAndls() {
