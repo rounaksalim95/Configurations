@@ -7,7 +7,7 @@ export ZSH=$HOME/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="random"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -92,13 +92,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias vanderbilt="cd ~/Documents/git/Vanderbilt"
-alias fall="cd ~/Documents/git/Vanderbilt/Fall_2017"
+alias sem="cd ~/Documents/git/Vanderbilt/Spring_2018"
 alias weather="curl \"wttr.in/nashville?m\""
 alias myip="curl http://ipecho.net/plain; echo"
 alias gt="cd ~/Documents/git"
 alias ga="git add ."
 alias gs="git status"
-alias gc="git commit -S"
+alias gc="git commit"
 alias glg="git log --graph --oneline --decorate --all"
 alias glp="git pull"
 
