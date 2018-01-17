@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vanderbilt="cd ~/Documents/git/Vanderbilt"
-alias fall="cd ~/Documents/git/Vanderbilt/Fall_2017"
+alias sem="cd ~/Documents/git/Vanderbilt/Spring_2018"
 alias weather="curl \"wttr.in/nashville?m\""
 alias myip="curl http://ipecho.net/plain; echo"
 alias gt="cd ~/Documents/git"
