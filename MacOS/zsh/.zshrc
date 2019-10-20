@@ -93,6 +93,7 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias gt="cd ~/Documents/git"
 alias ga="git add ."
 alias gs="git status"
+alias gr="git remote -v"
 alias gc="git commit -S"
 alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
@@ -124,5 +125,7 @@ alias jn="jupyter notebook"
 
 # Install z 
 . ~/Documents/git/z/z.sh
+
+export ANDROID_HOME="/Users/rounaksalim95/Library/Android/sdk"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
