@@ -1,8 +1,19 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source ~/Documents/software/antigen.zsh
 
 # Bundles
 antigen bundle zsh-users/zsh-autosuggestions
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen theme romkatv/powerlevel10k
+
+# Tell Antigen that you're done.
+antigen apply
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -14,7 +25,7 @@ export ZSH="/Users/rounaksalim/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -120,6 +131,9 @@ alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
 alias glp="git pull"
 
+# aliases for scripties
+alias spacer="python3 ~/Documents/git/utilities/space_eliminator.py"
+
 # Display content of a directory after using cd 
 cdAndls() {
 	builtin cd $1
@@ -140,7 +154,17 @@ makeAndcd() {
 
 alias cd="cdAndls"
 alias mkdir="makeAndcd"
+alias ls="lsd"
+alias ll="ls -la"
+alias lt="ls --tree --depth 3"
 # alias taption="taptionAndGreet"
 # alias vim="mvim -v"
 # alias jn="jupyter notebook"
 export GPG_TTY=$(tty)
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
