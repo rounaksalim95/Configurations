@@ -130,6 +130,7 @@ alias gc="git commit -S"
 alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
 alias glp="git pull"
+alias gpm="git push origin master"
 
 # aliases for scripties
 alias spacer="python3 ~/Documents/git/utilities/space_eliminator.py"
