@@ -131,6 +131,7 @@ alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
 alias glp="git pull"
 alias gpm="git push origin master"
+alias gp="git push"
 alias gco="git checkout"
 
 # aliases for scripties
