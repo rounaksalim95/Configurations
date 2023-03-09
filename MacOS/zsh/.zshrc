@@ -127,6 +127,7 @@ alias ga="git add ."
 alias gs="git status"
 alias gr="git remote -v"
 alias gc="git commit -S"
+alias gbd="deleteGitBranch"
 alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
 alias glp="git pull"
@@ -136,6 +137,12 @@ alias gco="git checkout"
 
 # aliases for scripties
 alias spacer="python3 ~/Documents/git/utilities/space_eliminator.py"
+
+deleteGitBranch() {
+	git checkout master
+	git branch -D $1
+	git push origin -d $1
+}
 
 # Display content of a directory after using cd 
 cdAndls() {
