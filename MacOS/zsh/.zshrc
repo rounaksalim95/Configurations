@@ -134,6 +134,9 @@ alias glp="git pull"
 alias gpm="git push origin master"
 alias gp="git push"
 alias gco="git checkout"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
+alias gwl="git worktree list"
 
 # aliases for scripties
 alias spacer="python3 ~/Documents/git/utilities/space_eliminator.py"
