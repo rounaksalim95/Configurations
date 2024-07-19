@@ -134,9 +134,43 @@ alias glp="git pull"
 alias gpm="git push origin master"
 alias gp="git push"
 alias gco="git checkout"
-alias gwa="git worktree add"
+alias gwa="create_worktree"
 alias gwr="git worktree remove"
 alias gwl="git worktree list"
+
+# Function to create a new worktree based on the latest master branch
+create_worktree() {
+    if [ -z "$1" ]; then
+        echo "Error: No branch name provided."
+        echo "Usage: create_worktree <new-branch-name>"
+        return 1
+    fi
+
+    local new_branch="$1"
+
+    git fetch origin
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to fetch from origin."
+        return 1
+    fi
+
+    git branch "$new_branch" origin/master
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to create branch '$new_branch' from 'origin/master'."
+        return 1
+    fi
+
+    git worktree add "../$new_branch" "$new_branch"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to create worktree for branch '$new_branch'."
+        return 1
+    fi
+
+    echo "Worktree for branch '$new_branch' created at '../$new_branch'."
+}
+
+# Alias to call the function
+alias newworktree='create_worktree'
 
 # aliases for scripties
 alias spacer="python3 ~/Documents/git/utilities/space_eliminator.py"
