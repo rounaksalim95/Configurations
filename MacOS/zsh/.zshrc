@@ -21,6 +21,9 @@ antigen apply
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/rounaksalim/.oh-my-zsh"
 
+# pyenv
+eval "$(pyenv init --path)"
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -127,59 +130,13 @@ alias ga="git add ."
 alias gs="git status"
 alias gr="git remote -v"
 alias gc="git commit -S"
-alias gbd="deleteGitBranch"
 alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
 alias glp="git pull"
 alias gpm="git push origin master"
-alias gp="git push"
-alias gco="git checkout"
-alias gwa="create_worktree"
-alias gwr="git worktree remove"
-alias gwl="git worktree list"
-
-# Function to create a new worktree based on the latest master branch
-create_worktree() {
-    if [ -z "$1" ]; then
-        echo "Error: No branch name provided."
-        echo "Usage: create_worktree <new-branch-name>"
-        return 1
-    fi
-
-    local new_branch="$1"
-
-    git fetch origin
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to fetch from origin."
-        return 1
-    fi
-
-    git branch "$new_branch" origin/master
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to create branch '$new_branch' from 'origin/master'."
-        return 1
-    fi
-
-    git worktree add "../$new_branch" "$new_branch"
-    if [ $? -ne 0 ]; then
-        echo "Error: Failed to create worktree for branch '$new_branch'."
-        return 1
-    fi
-
-    echo "Worktree for branch '$new_branch' created at '../$new_branch'."
-}
-
-# Alias to call the function
-alias newworktree='create_worktree'
 
 # aliases for scripties
 alias spacer="python3 ~/Documents/git/utilities/space_eliminator.py"
-
-deleteGitBranch() {
-	git checkout master
-	git branch -D $1
-	git push origin -d $1
-}
 
 # Display content of a directory after using cd 
 cdAndls() {
@@ -189,8 +146,9 @@ cdAndls() {
 
 # cd into the directory after making it 
 makeAndcd() {
-	command mkdir -p $1
-	builtin cd $1
+  command mkdir "$@"
+  local dir="${@[-1]}"  # last argument
+  builtin cd "$dir"
 }
 
 # cd into Taption and greet 
@@ -215,3 +173,32 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/homebrew/Caskroom/miniforge/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh" ]; then
+        . "/opt/homebrew/Caskroom/miniforge/base/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/homebrew/Caskroom/miniforge/base/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+# bun completions
+[ -s "/Users/rounaksalim/.bun/_bun" ] && source "/Users/rounaksalim/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.local/bin/env"
