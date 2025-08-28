@@ -131,7 +131,7 @@ alias gs="git status"
 alias gr="git remote -v"
 alias gd="git diff"
 # alias gc="git commit -S"
-alias gbd="deleteGitBranch"
+alias gbd="deleteCurrentBranch"
 alias gc="git commit"
 # alias gh="open http://github.com"
 alias glg="git log --graph --oneline --decorate --all"
@@ -178,10 +178,22 @@ create_worktree() {
 # Alias to call the function
 alias newworktree='create_worktree'
 
-deleteGitBranch() {
+# Delete the current branch
+deleteCurrentBranch() {
+    local branch
+    branch=$(git branch --show-current)
+
+    # Prevent accidental deletion if we're on master/main
+    if [[ "$branch" == "master" || "$branch" == "main" ]]; then
+        echo "Error: You are on '$branch'. Refusing to delete."
+        return 1
+    fi
+
+    echo "Deleting branch '$branch'..."
+
 	git checkout master
-	git branch -D $1
-	git push origin -d $1
+	git branch -D $branch
+	git push origin -d $branch
 }
 
 # aliases for scripties
