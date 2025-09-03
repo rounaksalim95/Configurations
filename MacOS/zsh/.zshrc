@@ -181,7 +181,13 @@ alias newworktree='create_worktree'
 # Delete the current branch
 deleteCurrentBranch() {
     local branch
-    branch=$(git branch --show-current)
+    
+    # Use provided branch name or current branch
+    if [ -n "$1" ]; then
+        branch="$1"
+    else
+        branch=$(git branch --show-current)
+    fi
 
     # Prevent accidental deletion if we're on master/main
     if [[ "$branch" == "master" || "$branch" == "main" ]]; then
